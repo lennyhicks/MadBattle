@@ -12,4 +12,28 @@ public class Stats {
     private Integer attack = 1;
     private Integer strength = 1;
     private Integer defense = 1;
+
+    public Integer getLevel() {
+        return level;
+    }
+
+    public Integer getHealth() {
+        return health;
+    }
+
+    public Integer getCurrHealth() {
+        return currHealth;
+    }
+
+    public Integer getAttack() {
+        return attack;
+    }
+
+    public Integer getStrength() {
+        return strength;
+    }
+
+    public Integer getDefense() {
+        return defense;
+    }
 }

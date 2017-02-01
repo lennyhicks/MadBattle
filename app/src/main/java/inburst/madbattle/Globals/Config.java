@@ -1,4 +1,4 @@
-package inburst.Globals;
+package inburst.madbattle.Globals;
 
 /**
  * Created by lennyhicks on 1/31/17.
