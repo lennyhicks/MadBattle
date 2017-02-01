@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "911517201620",
+    "firebase_url": "https://madbattle-93efe.firebaseio.com",
+    "project_id": "madbattle-93efe",
+    "storage_bucket": "madbattle-93efe.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:911517201620:android:b1cecdf0c86d3d72",
+        "android_client_info": {
+          "package_name": "inburst.madbattle"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "911517201620-baqddavdquv5sd1utno8rc1oej45crc8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA2O0V5AK3y9ZiWPsXZqgGd4MvVF6AGqig"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
