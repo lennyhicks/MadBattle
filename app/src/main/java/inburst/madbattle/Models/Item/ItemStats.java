@@ -11,6 +11,7 @@ public class ItemStats {
     private Integer itemStrength = 0;
     private Integer itemStamina = 0;
 
+
     private ItemStats(Integer itemAttack, Integer itemDefense, Integer itemStrength, Integer itemStamina) {
         this.itemAttack = itemAttack;
         this.itemDefense = itemDefense;
@@ -38,51 +39,55 @@ public class ItemStats {
             this.itemStamina = itemStamina;
         }
 
-        public Builder(ItemStats itemStats){
+        public Builder(ItemStats itemStats) {
             this.itemAttack = itemStats.getItemAttack();
             this.itemDefense = itemStats.getItemDefense();
             this.itemStrength = itemStats.getItemStrength();
             this.itemStamina = itemStats.getItemStamina();
         }
 
-        public Builder changeItemAttack(Integer itemAttack){
+        public Builder changeItemAttack(Integer itemAttack) {
             this.itemAttack = itemAttack;
             return this;
         }
 
-        public Builder changeItemDefense(Integer itemDefense){
+        public Builder changeItemDefense(Integer itemDefense) {
             this.itemDefense = itemDefense;
             return this;
         }
 
-        public Builder changeItemStrength(Integer itemStrength){
+        public Builder changeItemStrength(Integer itemStrength) {
             this.itemStrength = itemStrength;
             return this;
         }
 
-        private Builder changeItemStamina(Integer itemStamina){
+        private Builder changeItemStamina(Integer itemStamina) {
             this.itemStamina = itemStamina;
             return this;
         }
 
-        public ItemStats build(){
+        public ItemStats build() {
             return new ItemStats(itemAttack, itemDefense, itemStrength, itemStamina);
         }
     }
 
-        public Integer getItemAttack() {
-            return itemAttack;
-        }
-
-        public Integer getItemDefense() {
-            return itemDefense;
-        }
-
-        public Integer getItemStrength() {
-            return itemStrength;
-        }
-
-        public Integer getItemStamina() {
-            return itemStamina;
-        }
+    public Integer getItemAttack() {
+        return itemAttack;
     }
+
+    public Integer getItemDefense() {
+        return itemDefense;
+    }
+
+    public Integer getItemStrength() {
+        return itemStrength;
+    }
+
+    public Integer getItemStamina() {
+        return itemStamina;
+    }
+
+    public Integer getTotal(){
+        return itemAttack + itemStamina + itemStrength + itemDefense;
+    }
+}

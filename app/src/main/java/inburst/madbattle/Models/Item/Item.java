@@ -8,33 +8,38 @@ package inburst.madbattle.Models.Item;
 public class Item {
     private String itemName;
     private ItemStats mItemStats;
+    private ItemBonusStats mItemBonusStats;
 
-    private Item(String itemName, ItemStats itemStats){
+    private Item(String itemName, ItemStats itemStats, ItemBonusStats itemBonusStats){
         this.itemName = itemName;
         this.mItemStats = itemStats;
+        this.mItemBonusStats = itemBonusStats;
     }
 
     public static class Builder{
         private String itemName;
         private ItemStats mItemStats;
+        private ItemBonusStats mItemBonusStats;
 
         public Builder(){
             this.itemName = "";
             this.mItemStats = new ItemStats.Builder().build();
         }
 
-        public Builder(String itemName, ItemStats itemStats){
+        public Builder(String itemName, ItemStats itemStats, ItemBonusStats itemBonusStats){
             this.itemName = itemName;
             this.mItemStats = itemStats;
+            this.mItemBonusStats = itemBonusStats;
         }
 
         public Builder(Item item){
             this.itemName = item.getItemName();
             this.mItemStats = item.getItemStats();
+            this.mItemBonusStats = item.getItemBonusStats();
         }
 
         public Item build(){
-            return new Item(itemName, mItemStats);
+            return new Item(itemName, mItemStats, mItemBonusStats);
         }
     }
 
@@ -50,5 +55,9 @@ public class Item {
             return new ItemStats.Builder().build();
         }
         return mItemStats;
+    }
+
+    public ItemBonusStats getItemBonusStats() {
+        return mItemBonusStats;
     }
 }
