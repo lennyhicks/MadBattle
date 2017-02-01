@@ -1,33 +1,55 @@
 package inburst.madbattle;
 
-import android.support.design.widget.TabLayout;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TabHost;
+import android.widget.TabWidget;
 import android.widget.TextView;
+
+import inburst.madbattle.Admin.ItemEditor;
+import inburst.madbattle.Globals.Config;
 
 public class MainActivity extends AppCompatActivity {
 
+    protected ImageView mImageView;
+    protected EditText mMonsterName;
+    protected TextView mLevelText;
+    protected EditText mEditText6;
+    protected TextView mTextView;
+    protected TabWidget mTabs;
+    protected TextView mTextView5;
+    protected EditText mMonsterAttack;
+    protected EditText mMonsterDefense;
+    protected EditText mMonsterStrength;
+    protected EditText mMonsterHealth;
+    protected LinearLayout mStats;
+    protected LinearLayout mDrops;
+    protected FrameLayout mTabcontent;
+    protected TabHost mEditMonster;
+    protected Button mButtonSaveMonster;
     /**
-     * The {@link android.support.v4.view.PagerAdapter} that will provide
+     * The {@link PagerAdapter} that will provide
      * fragments for each of the sections. We use a
      * {@link FragmentPagerAdapter} derivative, which will keep every
      * loaded fragment in memory. If this becomes too memory intensive, it
      * may be best to switch to a
-     * {@link android.support.v4.app.FragmentStatePagerAdapter}.
+     * {@link FragmentStatePagerAdapter}.
      */
     private SectionsPagerAdapter mSectionsPagerAdapter;
 
@@ -39,29 +61,21 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        super.setContentView(R.layout.fragment_npc_editor);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        // Create the adapter that will return a fragment for each of the three
-        // primary sections of the activity.
-        mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
-
-        // Set up the ViewPager with the sections adapter.
-        mViewPager = (ViewPager) findViewById(R.id.container);
-        mViewPager.setAdapter(mSectionsPagerAdapter);
-
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
-        tabLayout.setupWithViewPager(mViewPager);
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+//        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+//        setSupportActionBar(toolbar);
+//        // Create the adapter that will return a fragment for each of the three
+//        // primary sections of the activity.
+//        mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
+//
+//        // Set up the ViewPager with the sections adapter.
+//        mViewPager = (ViewPager) findViewById(R.id.container);
+//        mViewPager.setAdapter(mSectionsPagerAdapter);
+//
+//        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
+//        tabLayout.setupWithViewPager(mViewPager);
+        initView();
 
     }
 
@@ -86,6 +100,60 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void initView() {
+        mImageView = (ImageView) findViewById(R.id.imageView);
+        mMonsterName = (EditText) findViewById(R.id.monsterName);
+        mLevelText = (TextView) findViewById(R.id.level_text);
+        mEditText6 = (EditText) findViewById(R.id.editText6);
+        mTextView = (TextView) findViewById(R.id.textView);
+        mTabs = (TabWidget) findViewById(android.R.id.tabs);
+        mTextView5 = (TextView) findViewById(R.id.textView5);
+        mMonsterAttack = (EditText) findViewById(R.id.monster_attack);
+        mMonsterDefense = (EditText) findViewById(R.id.monster_defense);
+        mMonsterStrength = (EditText) findViewById(R.id.monster_strength);
+        mMonsterHealth = (EditText) findViewById(R.id.monster_health);
+        mStats = (LinearLayout) findViewById(R.id.stats);
+        mDrops = (LinearLayout) findViewById(R.id.drops);
+        mTabcontent = (FrameLayout) findViewById(android.R.id.tabcontent);
+        mEditMonster = (TabHost) findViewById(R.id.edit_monster);
+        mButtonSaveMonster = (Button) findViewById(R.id.button_save_monster);
+
+        mEditMonster.setup();
+
+
+        TabHost.TabSpec statTab = mEditMonster.newTabSpec("Stat Tab");
+        statTab.setIndicator("Stats");
+        statTab.setContent(R.id.stats);
+        mEditMonster.addTab(statTab);
+
+
+        TabHost.TabSpec dropTab = mEditMonster.newTabSpec("Drop Tab");
+        dropTab.setIndicator("Drops");
+        dropTab.setContent(R.id.drops);
+        mEditMonster.addTab(dropTab);
+
+        mEditMonster.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
+            @Override
+            public void onTabChanged(String s) {
+                for(int i=0;i<mEditMonster.getTabWidget().getChildCount();i++)
+                {
+                    View view = mEditMonster.getTabWidget().getChildTabViewAt(i);
+                    if ( view != null ) {
+                        //view.setBackgroundColor(R.drawable.tab_color) ;
+
+                        // get title text view
+                    }
+
+                }           }
+        });
+
+        mEditMonster.setCurrentTab(0);
+
+        ItemEditor.rerollItem(50, 1.0, Config.ITEM_ROLL_MIN_MASTER, Config.ITEM_ROLL_MAX_MASTER);
+
+
     }
 
     /**

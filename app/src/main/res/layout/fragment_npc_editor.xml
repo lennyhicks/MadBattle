@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <ImageView
+        app:srcCompat="@drawable/common_full_open_on_phone"
+        android:id="@+id/imageView"
+        android:layout_gravity="center"
+        android:layout_width="125dp"
+        android:layout_height="125dp"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <EditText
+            android:layout_width="300dp"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:id="@+id/monsterName"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:hint="Name"
+            android:layout_height="40dp"
+            android:paddingLeft="8dp"/>
+
+        <TextView
+            android:text="Level"
+            android:layout_width="75dp"
+            android:id="@+id/level_text"
+            android:paddingLeft="8dp"
+            android:gravity="center_vertical"
+            android:layout_below="@+id/textView"
+            android:layout_alignParentStart="true"
+            android:layout_alignBottom="@+id/editText6"
+            android:layout_height="40dp"/>
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:inputType="number"
+            android:ems="10"
+            android:id="@+id/editText6"
+            android:hint="Level"
+            android:layout_below="@+id/monsterName"
+            android:layout_height="40dp"
+            android:layout_alignEnd="@+id/button_save_monster"
+            android:layout_alignStart="@+id/monsterName"
+            android:paddingLeft="8dp"/>
+
+        <TextView
+            android:text="Name"
+            android:layout_width="75dp"
+            android:id="@+id/textView"
+            android:gravity="center_vertical"
+            android:paddingLeft="8dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            android:layout_height="40dp"/>
+
+        <TabHost
+            android:id="@+id/edit_monster"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:layout_below="@+id/level_text"
+            android:layout_alignParentStart="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TabWidget
+                    android:id="@android:id/tabs"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"/>
+
+                <FrameLayout
+                    android:id="@android:id/tabcontent"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:id="@+id/stats"
+                        android:layout_width="386dp"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:orientation="horizontal"
+                            android:layout_height="50dp">
+
+                            <TextView
+                                android:text="Attack"
+                                android:id="@+id/textView5"
+                                android:layout_width="75dp"
+                                android:gravity="center_vertical"
+                                android:paddingLeft="8dp"
+                                android:layout_height="50dp"/>
+
+                            <EditText
+                                android:layout_width="300dp"
+                                android:hint="Attack"
+                                android:id="@+id/monster_attack"
+                                android:inputType="number"
+                                android:layout_height="50dp"
+                                android:paddingLeft="16dp"/>
+
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:text="Defense"
+                                android:layout_width="75dp"
+                                android:gravity="center_vertical"
+                                android:paddingLeft="8dp"
+                                android:layout_height="50dp"/>
+
+                            <EditText
+                                android:layout_width="300dp"
+                                android:hint="Defense"
+                                android:id="@+id/monster_defense"
+                                android:inputType="number"
+                                android:layout_height="50dp"
+                                android:paddingLeft="16dp"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:text="Strength"
+                                android:layout_width="75dp"
+                                android:gravity="center_vertical"
+                                android:paddingLeft="8dp"
+                                android:layout_height="50dp"/>
+
+                            <EditText
+                                android:layout_width="300dp"
+                                android:hint="Strength"
+                                android:id="@+id/monster_strength"
+                                android:inputType="number"
+                                android:layout_height="50dp"
+                                android:paddingLeft="16dp"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:text="Health"
+                                android:layout_width="75dp"
+                                android:gravity="center_vertical"
+                                android:paddingLeft="8dp"
+                                android:layout_height="50dp"/>
+
+                            <EditText
+                                android:layout_width="300dp"
+                                android:hint="Health"
+                                android:id="@+id/monster_health"
+                                android:inputType="number"
+                                android:layout_height="50dp"
+                                android:paddingLeft="16dp"/>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/drops"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                    </LinearLayout>
+
+                </FrameLayout>
+            </LinearLayout>
+        </TabHost>
+
+        <Button
+            android:text="Save Changes"
+            android:layout_width="match_parent"
+            android:layout_height="75dp"
+            android:id="@+id/button_save_monster"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentStart="true"/>
+
+    </RelativeLayout>
+</LinearLayout>

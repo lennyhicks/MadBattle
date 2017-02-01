@@ -1,5 +1,6 @@
 package inburst.madbattle.Actions;
 
+import inburst.madbattle.Globals.Config;
 import inburst.madbattle.Models.Player.Player;
 
 /**
@@ -9,10 +10,12 @@ import inburst.madbattle.Models.Player.Player;
 
 public class Defense {
 
-    public Integer defendPlayer(Player attackingPlayer, Player defendingPlayer){
+    public static Integer defendPlayer(Player attackingPlayer, Player defendingPlayer){
         Integer total = 0;
-
-
+            if(defendingPlayer.getPlayerStats().getDefense() > attackingPlayer.getPlayerStats().getAttack()){
+                Integer advantage = defendingPlayer.getPlayerStats().getDefense() - attackingPlayer.getPlayerStats().getAttack();
+                total = (int) (Math.random() * advantage / Config.DEFENDING_DIVIDER);
+            }
         return total;
     }
 }

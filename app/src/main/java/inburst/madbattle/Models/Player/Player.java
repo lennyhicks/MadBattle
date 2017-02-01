@@ -66,4 +66,12 @@ public class Player {
     public Equipment getPlayerEquips() {
         return playerEquips;
     }
+
+    public void addExp(Integer skill, Integer total){
+        getPlayerStats().addExp(skill, total);
+    }
+
+    public void damage(Integer damage){
+        getPlayerStats().setCurrHealth(getPlayerStats().getCurrHealth() - damage);
+    }
 }
